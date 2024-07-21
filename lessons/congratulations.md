@@ -5,7 +5,13 @@ Que jornada, hein?
 Espero que tenha gostado do curso tanto quanto gostei de te ensinar.
 
 Neste mesmo [repositório](https://github.com/wlsf82/cypress-basico-v2), você encontrará soluções para cada exercício em [_branches_ específicos](https://github.com/wlsf82/cypress-basico-v2/branches), cada um com seus [_commits_](https://github.com/wlsf82/cypress-basico-v2/commits/aula-12), caso queira consultar.
+> 🤓 Caso você queira fazer o upgrade do projeto para uma versão mais recente do Cypress (v10+), siga os passos descritos na _Live_ [Migração dos projetos da Escola TAT para a versão 10 do Cypress - Parte 1](https://www.youtube.com/live/LLFsask2M1w?feature=share&t=394).
+>
+> **Obs.:** Apesar do título da _Live_ citar a versão 10, o mesmo vale para versões 11, 12, etc.
+>
+> **Obs. 2:** Dependendo da versão para qual você fizer o _upgrade_, pode ser necessário utilizar a imagem [`cypress-io/github-action@v5`](https://github.com/cypress-io/github-action) no _pipeline_ de integração contínua do GitHub Actions.
 
+## Recapitulando
 > 🤓 Caso você queira fazer o upgrade do projeto para uma versão mais recente do Cypress (v10+), siga os passos descritos na _Live_ [Migração dos projetos da Escola TAT para a versão 10 do Cypress - Parte 1](https://www.youtube.com/live/LLFsask2M1w?feature=share&t=394).
 >
 > **Obs.:** Apesar do título da _Live_ citar a versão 10, o mesmo vale para versões 11, 12, etc.
