@@ -50,5 +50,55 @@ describe('Central de Atendimento ao Cliente TAT', function() {
         cy.enviarFormsSucesso()
         cy.get('.success').should('be.visible')
     })
+    it('Usando o select para escolher o Youtube',function(){
+       cy.get('#product').select('YouTube').should('have.value', 'youtube')
+    })
+    it('Usando o select para escolher o Mentoria',function(){
+        cy.get('#product').select('mentoria').should('have.value', 'mentoria')
+     })
+     it('Usando o select para escolher o Blog',function(){
+        cy.get('#product').select(1).should('have.value', 'blog')
+     })
+     it('Usando o radio buttom "Feedback"',function(){
+        cy.get('input[type="radio"][value="feedback"]').check().should('have.value','feedback')
+     })
+     it('Marcando todos os radios"',function(){
+        cy.get('input[type="radio"]').should('have.length',3).each(function($radio){
+            cy.wrap($radio).check()
+            cy.wrap($radio).should('be.checked')
+        })
+     })
+     it('Trabalhando com check e uncheck, modelo facil',function(){
+        cy.get('input[type="checkbox"][value="email"]').check().should('be.enabled')
+        cy.get('input[type="checkbox"][value="phone"]').check().last().uncheck().should('not.be.checked')
+     })
+     it('Habilitar telefone e nao preencher campos',function(){
+        cy.get('input[type="checkbox"][value="phone"]').check().should('be.enabled')
+        cy.enviarFormsSucesso()
+        cy.get('.error').should('be.visible')
+     })
+     it('Fazer o upload de um arquivo',function(){
+        cy.get('input[type="file"]').selectFile('cypress/fixtures/example.json').should(function($input){
+            expect($input[0].files[0].name).to.equal('example.json')
+        })
+     })
+     it('Fazer o upload de um arquivo drag e drop, arrasta e solta',function(){
+        cy.get('input[type="file"]').selectFile('cypress/fixtures/example.json', {action: 'drag-drop'}).should(function($input){
+            expect($input[0].files[0].name).to.equal('example.json')
+        })
+     })
+     it('Fazer o upload de um arquivo drag e drop, usando fixture',function(){
+       cy.fixture('example.json').as('sampleFile')
+       cy.get('input[type="file"]').selectFile('@sampleFile').should(function($input){
+        expect($input[0].files[0].name).to.equal('example.json')
+    })
+     })
+     it('Explorando outra aba usando cypress',function(){
+        cy.get('#privacy a').should('have.attr','target','_blank')
+     })
+     it('Acessando outra tela no cypress',function(){
+        cy.get('#privacy a').invoke('removeAttr','target').click()
+        cy.contains('Talking About Testing').should('be.visible')
+     })
   })
   
